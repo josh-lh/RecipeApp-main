@@ -1,0 +1,43 @@
+input[type="submit"] {
+  background-color: orange;
+  border: 1px solid orange;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  height: 40px;
+  font-weight: 500;
+  width: 100px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: darkgoldenrod;
+  font-size: 18px;
+}
+
+.submit-form-input {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.field-array-container {
+  margin: 10px auto;
+  width: 100%;
+}
+
+.form-item-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: baseline;
+}
+
+.form-validation-error {
+  color: red;
+}

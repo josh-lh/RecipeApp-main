@@ -1,0 +1,13 @@
+.home-search-recipes {
+  height: 40px;
+  min-width: 50vw;
+  padding-left: 10px;
+  margin: 10px;
+  font-size: 14px;
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

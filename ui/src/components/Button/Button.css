@@ -1,0 +1,27 @@
+.button {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: orange;
+  color: white;
+  border: grey;
+  cursor: pointer;
+}
+
+.button.standard {
+  display: flex;
+  padding: 10px;
+}
+
+.button.alt {
+  background-color: white;
+  border: 1px solid orange;
+  color: orange;
+  padding: 5px 10px;
+}
+
+.button.alt:hover {
+  background-color: orange;
+  border: 1px solid darkgoldenrod;
+  color: white;
+}
