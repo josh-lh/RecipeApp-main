@@ -1,11 +1,10 @@
 # Recipe app
 ## Introduction
-Feel free to [use this repository as a template](../../generate) (Please don't fork!) or start from scractch.
-
-The requirement is to build and end to end application consisting of a Typescript, React webapp, a Typescript API and a data store of your choice.
-The spec below defines 3 user stories all with acceptance criteria. Do your best to interpret them and implement them. If you feel you're missing context, drop an email to tech-test@sero.life.
-
-Could you provide a GitHub repository link with your work when you feel you've completed the task to tech-test@sero.life?
+First off, thanks for reviewing the code, all feedback and criticism is appreciated. A few remarks:
+1. First time using mongo. When I do this again in the future, I would probably spend more time learning how to debug mongoclient as I was struggling to get the search regex working despite following documentation. That meant that I had to improvise on the search and pushed search logic to front end instead (not something I would usually do).
+2. First time using typescript in a project. It wasn't too bad but please let me know if you spot any glaring issues/things I have missed.
+3. First time using cypress, I ran out of time to implement this as cleanly as I would like (see comments in e2e).
+4. Not got too much experience at the moment with docker other than using the containers locally where I currently work. In the end I couldn't get docker to work with my updates to api (same issues as discussed in previous email). That being said, you will need to run the makefile in order to build mongo.
 
 ## How to run the app
 
@@ -15,6 +14,9 @@ Open a terminal and run the following command to spin up the API and React UI
 make install docker
 ```
 
+N.B. when working on this, I would keep mongo image running in docker but then run the api/ui locally. You may need to tweak .env in api and baseurl.ts in ui if not using localhost.
+
+
 _Navigate to http://localhost:3000 to view the UI_
 
 ## How to run the tests
@@ -22,24 +24,24 @@ _Navigate to http://localhost:3000 to view the UI_
 Run the following command in a separate terminal (You must have your UI and API running)
 
 ```
-make test
+npm run e2e
 ```
 
 ## Build an app for a chef to store their favorite recipes.
 Ideal tech stack:
-- Typescript
-- React
-- Cypress
-- Docker
+- Typescript :heavy_check_mark:
+- React :heavy_check_mark:
+- Cypress :heavy_check_mark:
+- Docker kinda :heavy_check_mark:
 
 ## Non-functional requirements
 - Run the whole stack with `make install docker`
-- Data is persisted when database is stopped and started
-- End to end tests demonstrate acceptance criteria has been implemented
+- Data is persisted when database is stopped and started :heavy_check_mark:
+- End to end tests demonstrate acceptance criteria has been implemented :heavy_check_mark:
 
 
-## Saving favorite recipes
-### User story 1
+## Saving favorite recipes :heavy_check_mark:
+### User story 1 
 As a chef
 I want to save my favorite recipes\
 So that I can cook them another time
@@ -52,7 +54,7 @@ And measurements\
 And cooking method\
 Then the new recipe is saved for later
  
-## Searching favorite recipes by name
+## Searching favorite recipes by name :heavy_check_mark:
 ### User story 2
 As a chef\
 I want to search for my favorite recipe\
@@ -65,7 +67,7 @@ Then I find the recipe\
 And I can see the ingredients\
 And I can see the cooking methods
  
-## Searching favorite recipes by ingredients (Optional)
+## Searching favorite recipes by ingredients (Optional) :heavy_check_mark:
 ### User story 3
 As a chef\
 I want to search for my favorite recipe by ingredient\
