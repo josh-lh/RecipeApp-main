@@ -1,10 +1,7 @@
 # Recipe app
 ## Introduction
-First off, thanks for reviewing the code, all feedback and criticism is appreciated. A few remarks:
-1. First time using mongo. When I do this again in the future, I would probably spend more time learning how to debug mongoclient as I was struggling to get the search regex working despite following documentation. That meant that I had to improvise on the search and pushed search logic to front end instead (not something I would usually do).
-2. First time using typescript in a project. It wasn't too bad but please let me know if you spot any glaring issues/things I have missed.
-3. First time using cypress, I ran out of time to implement this as cleanly as I would like (see comments in e2e).
-4. Not got too much experience at the moment with docker other than using the containers locally where I currently work. In the end I couldn't get docker to work with my updates to api (same issues as discussed in previous email). That being said, you will need to run the makefile in order to build mongo.
+Thanks for reviewing the code, had a lot of fun getting this to work as it allowed me to play with some tech I haven't had the opportunity to before hand. Any and all feedback and criticism is appreciated. I have tried to leave comments with remarks on why some things were done the way they were but if you have any question then please feel free to email me to discuss further.
+
 
 ## How to run the app
 
@@ -32,7 +29,7 @@ Ideal tech stack:
 - Typescript :heavy_check_mark:
 - React :heavy_check_mark:
 - Cypress :heavy_check_mark:
-- Docker kinda :heavy_check_mark:
+- Docker kinda? :heavy_check_mark:
 
 ## Non-functional requirements
 - Run the whole stack with `make install docker`
