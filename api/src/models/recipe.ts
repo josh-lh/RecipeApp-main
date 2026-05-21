@@ -18,4 +18,5 @@ export default interface Recipe {
   servings: number;
   ingredients: Ingredient[];
   cookingMethod: CookingStep[];
+  // TODO: add userId field to associate recipes with users
 }

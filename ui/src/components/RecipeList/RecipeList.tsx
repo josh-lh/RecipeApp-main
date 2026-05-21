@@ -40,8 +40,8 @@ const RecipeList = (props: Props) => {
   return (
     <div className="recipe-list">
       {filteredData.length > 0 ? (
-        filteredData.map((r) => {
-          return <Recipe recipe={r} key={r._id} />;
+        filteredData.map((r, index) => {
+          return <Recipe recipe={r} key={index} />;
         })
       ) : (
         <p>No recipes found for '{searchValue}'</p>

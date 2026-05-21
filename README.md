@@ -80,3 +80,13 @@ And I can see the cooking methods
 ## Bonus points (Optional)
 1. Continuous integration
 2. App deployment
+
+## API Reference
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/recipes` | Returns all recipes |
+| GET | `/recipes/:id` | Returns a single recipe by ID |
+| POST | `/recipes` | Creates a new recipe. Body: `{ name, servings, ingredients, steps }` |
+| PUT | `/recipes/:id` | Updates an existing recipe |
+| DELETE | `/recipes/:id` | ⚠️ Not yet implemented |

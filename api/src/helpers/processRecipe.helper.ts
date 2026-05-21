@@ -5,11 +5,12 @@ import Recipe from "../models/recipe";
  * can successfully process it (otherwise returns 400)
  */
 const processRecipe = (recipe: any) => {
+  console.log("Processing recipe:", JSON.stringify(recipe));
   let processedRecipe = {
     ...recipe,
   };
 
-  if (recipe.servings) processedRecipe.servings = parseInt(recipe.servings);
+  if (recipe.servings) processedRecipe.servings = Number(recipe.servings);
 
   if (recipe.ingredients instanceof Array) {
     processedRecipe.ingredients = recipe.ingredients.map(
@@ -27,7 +28,7 @@ const processRecipe = (recipe: any) => {
       (cm: any, index: any) => {
         return {
           ...cm,
-          id: index + 1,
+          id: index,
         };
       }
     );

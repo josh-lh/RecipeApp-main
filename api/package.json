@@ -4,7 +4,8 @@
   "description": "The API For Recipe Book",
   "main": "index.ts",
   "scripts": {
-    "dev": "ts-node-dev ./index.ts"
+    "dev": "ts-node-dev ./index.ts",
+    "test": "jest --passWithNoTests"
   },
   "license": "ISC",
   "dependencies": {

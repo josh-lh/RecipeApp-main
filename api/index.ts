@@ -14,7 +14,7 @@ export class Application {
   }
 
   setupApplicationSettings() {
-    app.use(cors());
+    app.use(cors({ origin: true }));
     app.use(urlencoded({ extended: false }));
     app.use(json());
   }
@@ -32,6 +32,7 @@ export class Application {
 
   setupControllers() {
     console.log("setting up controllers");
+    // TODO: add input validation middleware (e.g. joi/zod) before routes
     app.use("/recipes", recipesRouter);
   }
 }

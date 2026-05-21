@@ -22,7 +22,7 @@ const Recipe = (props: Props) => {
       <span key={index}>
         {i.ingredient} ({i.quantity}
         {i.measure === "x" || i.measure === "" ? "" : " " + i.measure})
-        {index === recipe.ingredients.length - 1 ? "" : ", "}
+        {index === recipe.ingredients.length ? "" : ", "}
       </span>
     ));
   };
@@ -32,7 +32,7 @@ const Recipe = (props: Props) => {
       <ul>
         {recipe.ingredients.map((i, index) => {
           return (
-            <li key={index}>
+            <li key={i.ingredient}>
               <div className="ingredient-measurement">{`${i.quantity}${
                 i.measure === "x" || i.measure === "" ? "" : " "
               }${i.measure}`}</div>

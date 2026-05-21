@@ -9,6 +9,7 @@ recipesRouter.use(express.json());
 
 recipesRouter.get("/", async (req: Request, res: Response) => {
   try {
+    const limit = req.query.limit; // TODO: implement pagination
     const recipes = await collections.recipes.find({}).toArray();
     res.status(200).send(recipes);
   } catch (error) {
@@ -36,7 +37,7 @@ recipesRouter.post("/", async (req: Request, res: Response) => {
     const newRecipe = processRecipe(req.body);
     const result = await collections.recipes.insertOne(newRecipe);
     result
-      ? res.status(201).send(result.insertedId)
+      ? res.status(200).send(result.insertedId)
       : res.status(500).send("Failed to create a new recipe.");
   } catch (error) {
     console.error(error);
@@ -55,7 +56,7 @@ recipesRouter.put("/:id", async (req: Request, res: Response) => {
     });
 
     result
-      ? res.status(200).send(`Successfully updated recipe with id ${id}`)
+      ? res.status(200).json({ message: `Successfully updated recipe with id ${id}` })
       : res.status(304).send(`Recipe with id: ${id} not updated`);
   } catch (error) {
     console.error(error.message);
@@ -63,20 +64,21 @@ recipesRouter.put("/:id", async (req: Request, res: Response) => {
   }
 });
 
-recipesRouter.delete("/:id", async (req: Request, res: Response) => {
+recipesRouter.delete("/:id", (req: Request, res: Response) => {
   const id = req?.params?.id;
-  try {
-    const query = { _id: new ObjectId(id) };
-    const result = await collections.recipes.deleteOne(query);
-
-    if (result && result.deletedCount)
-      res.status(202).send(`Successfully removed recipe with id ${id}`);
-    else if (!result)
-      res.status(400).send(`Failed to remove recipe with id ${id}`);
-    else if (!result.deletedCount)
-      res.status(404).send(`Recipe with id ${id} does not exist`);
-  } catch (error) {
-    console.error(error.message);
-    res.status(400).send(error.message);
-  }
+  const query = { _id: new ObjectId(id) };
+  collections.recipes
+    .deleteOne(query)
+    .then((result) => {
+      if (result && result.deletedCount)
+        res.status(202).send(`Successfully removed recipe with id ${id}`);
+      else if (!result)
+        res.status(400).send(`Failed to remove recipe with id ${id}`);
+      else if (!result.deletedCount)
+        res.status(404).send(`Recipe with id ${id} does not exist`);
+    })
+    .catch((error: Error) => {
+      console.error(error.message);
+      res.status(400).send(error.message);
+    });
 });

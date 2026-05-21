@@ -5,6 +5,10 @@ import { recipeSchema } from "../schemas/recipes.schema";
 
 export const collections: { recipes?: mongoDB.Collection<Recipe> } = {};
 
+/**
+ * Connects to MongoDB and initialises the recipes collection.
+ * @returns Promise<void>
+ */
 export async function connectToDatabase() {
   dotenv.config();
 

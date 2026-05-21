@@ -11,6 +11,7 @@ const RecipeForm = () => {
   const navigator = useHistory();
   const [minIngredients, setMinIngredients] = useState(true);
   const [minCookingSteps, setMinCookingSteps] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // used react-hook-form for form building but next time I would just build it myself - didn't really help that much.
   const {
@@ -39,6 +40,7 @@ const RecipeForm = () => {
   });
 
   const onSubmit = async (data: any) => {
+    setIsSubmitting(true);
     setMinIngredients(data.ingredients.length > 0);
     setMinCookingSteps(data.cookingMethod.length > 0);
     if (!minIngredients || !minCookingSteps) return;
@@ -51,6 +53,10 @@ const RecipeForm = () => {
         if (data) navigator.push(`/recipe/${JSON.parse(data)}`);
       });
   };
+
+  const StepLabel = ({ index }: { index: number }) => (
+    <div className="step">{index + 1}.</div>
+  );
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -152,7 +158,7 @@ const RecipeForm = () => {
         return (
           <>
             <div className="form-item-container" key={field.id}>
-              <div className="step">{index + 1}.</div>
+              <StepLabel index={index} />
               <Input
                 type="text"
                 placeholder="method"

@@ -8,3 +8,12 @@ export async function saveRecipe(recipe: IRecipe) {
     body: JSON.stringify(recipe),
   });
 }
+
+// TODO: implement update and delete service methods
+// export async function updateRecipe(id: string, recipe: IRecipe) {
+//   return fetch(`${BASE_URL}/recipes/${id}`, {
+//     method: "PUT",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(recipe),
+//   });
+// }
