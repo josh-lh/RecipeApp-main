@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\joshu\\\\repo\\\\RecipeApp-main\" -Recurse -Force)",
+      "Bash(Select-Object FullName)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\joshu\\\\repo\\\\RecipeApp-main\" -Force)",
+      "Bash(Select-Object Name, PSIsContainer)",
+      "Bash(Select-Object Name, Mode)",
+      "Bash(Format-Table -AutoSize)",
+      "Bash(grep -E \"\\\\.\\(env|json|jsx|tsx|ts|js\\)$\")",
+      "Bash(cat api/tsconfig.json)",
+      "Bash(cat ui/tsconfig.json)",
+      "Bash(Select-String -NotMatch \"node_modules|\\\\.lock$|dist$\")",
+      "Bash(Measure-Object -Line)",
+      "Bash(xargs wc -l)",
+      "Bash(grep -v \"\\\\.lock$\")",
+      "PowerShell(\\(Get-Content \"c:\\\\Users\\\\joshu\\\\repo\\\\RecipeApp-main\\\\.claude\\\\plans\\\\hallucination-prompts.md\" | Measure-Object -Line\\).Lines)"
+    ]
+  }
+}
