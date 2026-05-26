@@ -26,7 +26,8 @@ const Recipe = (props: Props) => {
       </span>
     ));
   };
-
+  // to do: implement in api - a way that updates or renames an ingredient and updates this list
+  //  or replace it with a backend-driven flag (e.g. isIngredientChanged) on the ingredient entity.
   const showIngredientsAsList = () => {
     return (
       <ul>
